@@ -1,7 +1,13 @@
-Hai teman2 saya ingin berbagi ilmu buat kalian yang mau belajar ngoding silahkan free, saat ini saya baru melanjutkan video saya yaitu ReactJS, PHP laravel VueJS dan sekarang saya masuk ke Python Flask , Semoga bermanfaat.
-https://www.youtube.com/channel/UCiAGAKn6VGst6zLMif9_3rQ/videos
+#### Python Flask
+
+## Flask-SQLAlchemy
+## Flask-Migrate
+## Flask-Marshmallow
 
 
-
-Content Youtube
-<!-- https://www.youtube.com/watch?v=Tu4vRU4lt6k&list=PLXmMXHVSvS-BlLA5beNJojJLlpE0PJgCW&ab_channel=PrettyPrinted -->
+```
+python -m pip install -r requirements.txt
+export FLASK_APP=run.py
+export FLASK_DEBUG=1
+flask run
+```
