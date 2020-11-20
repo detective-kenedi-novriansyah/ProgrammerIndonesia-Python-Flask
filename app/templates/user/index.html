@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    {% for i in user %}
+    <div class="w-32 bg-white shadow py-6 block m-auto">
+        <a href="{{ url_for('detailUser', pk=i.id)}}">
+            {{i.username}}
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
