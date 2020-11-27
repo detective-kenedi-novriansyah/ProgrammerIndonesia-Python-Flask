@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="width: 80%; display: block; margin: auto;" class="mt-2">
+    <div class="flex">
+        <div style="width: 100%;">
+            <div class="flex items-center mb-2">
+                <img src={{user.profile}} alt="" class="w-32 h-32 rounded-full mr-2">
+                <a href="{{ url_for('user.detailuser', pk=user.id)}}" class="text-xl font-bold font-sans">
+                    {{user.username}}
+                </a>
+            </div>
+            {% if current_user.username == user.username %}
+            <form method="POST" enctype="multipart/form-data" class="my-4">
+                {{ form.hidden_tag() }}
+                <div class="field">
+                    <div class="control">
+                        {{form.username(class="input")}}
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        {{form.email(class="input")}}
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        {{form.profile}}
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        {{form.submit(class="button is-small ")}}
+                    </div>
+                </div>
+            </form>
+            {% endif %}
+            {% for i in post %}
+            <div class="knd-card shadow">
+                <div class="knd-card-header">
+                  <div>
+                    <img src={{ i.author.profile }} alt="" class="knd-card-avatar">
+                    <a href="{{ url_for('user.detailuser', pk=i.author.id)}}" class="text-sm font-sans font-bold text-black ml-2">
+                      {{i.author.username}}
+                    </a>
+                  </div>
+                  <small>
+                    {{ i.create_at }}
+                  </small>
+                </div>
+                <div class="knd-card-content">
+                  <p>
+                    {{i.content}}
+                  </p>
+                </div>
+                <div class="knd-card-footer">
+                {% if current_user.username == i.author.username %}
+                  <a href="{{ url_for('post.updatePost', pk=i.id)}}" class="button is-small font-bold rounded">
+                    Update
+                  </a>
+                  {% endif %}
+                {% if current_user.username == i.author.username %}
+                  <a href="{{ url_for('post.deletePost', pk=i.id)}}" class="button is-danger is-small font-bold rounded">
+                    Delete
+                  </a>
+                  {% endif %}
+                  <div></div>
+                  <a href="{{ url_for('post.detailpost', pk=i.id)}}" class="button is-primary is-small font-bold rounded">
+                    Comment
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        <div style="width: 100%;"></div>
+    </div>
+</div>
+{% endblock %}

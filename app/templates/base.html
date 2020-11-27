@@ -11,6 +11,56 @@
     integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
     crossorigin="anonymous"
   />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <style>
+    .knd-card {
+      padding: 0.50rem;
+      margin-bottom: 0.25rem;
+    }
+    .knd-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+    .knd-card-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 80%;
+    }
+  
+    .knd-card-header div {
+      display: flex;
+      align-items: center;
+    }
+  
+    .knd-card-content {
+      word-wrap: break-word;
+      word-break: word-wrap;
+    }
+  
+    .knd-card-content p {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  
+    .knd-card-footer {
+      display: flex;
+      align-items: center;
+    }
+  
+    .knd-card-footer a:first-child {
+      margin-right: 0.25rem;
+    }
+  
+    .knd-card-footer div {
+      flex: 1 1 0%;
+    }
+    .knd-detail-post {
+      width: 60%;
+      display: block;
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
     {% include('navbar/index.html') %}
@@ -22,7 +72,7 @@
       {% endfor %}
       </ul>
     {% endif %}
-  {% endwith %}
+    {% endwith %}
     {% block content %}
     
     {% endblock %}

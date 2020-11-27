@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="knd-detail-post">
+    <div class="knd-card shadow">
+        <div class="knd-card-header">
+          <div>
+            <img src={{ post.author.profile }} alt="" class="knd-card-avatar">
+            <a href="{{ url_for('user.detailuser', pk=post.author.id)}}" class="text-sm font-sans font-bold text-black ml-2">
+              {{post.author.username}}
+            </a>
+          </div>
+          <small>
+            {{ post.create_at }}
+          </small>
+        </div>
+        <div class="knd-card-content">
+          <p>
+            {{post.content}}
+          </p>
+        </div>
+        <div class="knd-card-footer">
+          {% if current_user.username == post.author.username %}
+          <a href="{{ url_for('post.updatePost', pk=post.id)}}" class="button is-small font-bold rounded">
+            Update
+          </a>
+          {% endif %}
+          {% if current_user.username == post.author.username %}
+          <a href="{{ url_for('post.deletePost', pk=post.id)}}" class="button is-danger is-small font-bold rounded">
+            Delete
+          </a>
+          {% endif %}
+          <div></div>
+          <a href="" class="button is-primary is-small font-bold rounded">
+            Comment
+          </a>
+        </div>
+    </div>
+</div>
+{% endblock%}
